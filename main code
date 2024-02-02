@@ -1,0 +1,51 @@
+using System;
+using static movie4.Program;
+
+namespace movie4
+{
+
+
+    class Program
+    {
+
+        public struct Movies
+        {
+            public string MovieName;
+            public string MovieTime; 
+            public string MovieDirector;
+            public string MovieGenre;
+            public bool IsRented;
+
+        }
+
+        static void Main(string[] args)
+        {
+            Movies[] movies = new Movies[]
+            {
+                new Movies {MovieName = "Titanic", MovieTime = "3h 14m", MovieDirector = "James Cameron", MovieGenre = "Romantic"},
+                new Movies {MovieName = "The Shawshank Redemption", MovieTime = "2h 22m", MovieDirector = "Frank Darabont", MovieGenre = "Thriller, Crime"},
+                new Movies {MovieName = "GodFather", MovieTime = "2h 55m", MovieDirector = "Francis Ford Coppola", MovieGenre = "Crime, Drama"},
+                new Movies {MovieName = "The Godfather Part II", MovieTime = "3h 22m", MovieDirector = "Francis Ford Coppola", MovieGenre = "Crime, Drama"},
+                new Movies {MovieName = "The Dark Knight", MovieTime = "2h 32", MovieDirector = "Christopher Nolan", MovieGenre = "Action, Crime, Drama"},
+                new Movies {MovieName = "Home Alone 1", MovieTime = "1h 43m", MovieDirector = "Chris Columbus", MovieGenre = "Comedy"},
+                new Movies {MovieName = "Home Alone 2", MovieTime = "2h", MovieDirector = "Chris Columbus", MovieGenre = "Comedy, Adventure, Family"},
+                new Movies {MovieName = "Home Alone 3", MovieTime = "1h 42m", MovieDirector = "Raja Gosnell", MovieGenre = "Action, Comedy Crime, Family"},
+                new Movies {MovieName = "Schindler's Lis", MovieTime = " 3h 15m", MovieDirector = "Steven Spielberg", MovieGenre = "Drama, History"},
+                new Movies {MovieName = "Pulp Fiction", MovieTime = "2h 34m", MovieDirector = "Quentin Tarantino", MovieGenre = "Crime, Drama"}
+            };
+
+            ShowMenu(movies);
+
+        }
+        static void ShowMenu(Movies[] movies)
+        {
+            Console.WriteLine("Välj en film att hyra (tryck 0 för att avsluta):");
+            for (int i = 0; i < movies.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {movies[i].MovieName} - Genre: {movies[i].MovieGenre} - Utlånad: {(movies[i].IsRented ? "Ja" : "Nej")}");
+            }
+        }
+    }
+}
+
+ 
